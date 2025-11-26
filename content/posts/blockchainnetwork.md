@@ -8,7 +8,7 @@ draft: false
 
 Hey, Are you curious? Curious enough to question things around you, Curious enough to dig deeper to it's core, Curious enough to learn more than other, Curious enough to break things and join them back.
 
-My answer is I don't know, sometime I am and sometime I'm not and It is a story when I was one. I was looking to white paper of bitcoin and learning how is the network self sustaining and reliable in itself. I was chatting with llm to know about it more what are the types of blockchain network architecture. This post is just about explain one of the architecture called mining pool setup.
+My answer is I don't know, sometime I am and sometime I'm not and It is a story when I was one. I was looking to white paper of bitcoin and learning how is the network self sustaining and reliable in itself. I was chatting with llm to know about it more what are the types of blockchain network architecture. This post is just about one of the architecture called mining pool setup.
 
 ## Introduction
 
