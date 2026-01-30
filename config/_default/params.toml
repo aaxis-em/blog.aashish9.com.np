@@ -1,0 +1,12 @@
+colorScheme = "bloody"
+defaultAppearance = "dark"   # light | dark | auto
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+
+mainSections = ["posts"]
+[homepage]
+  layout = "list"
+
+

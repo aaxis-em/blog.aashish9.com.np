@@ -1,0 +1,10 @@
+title = "Blogs"
+
+[params.author]
+name = "🌀 Aashish Thoughts"
+image = "img/pfp.gif"
+headline = "I write once in a blue moon"
+bio = "Fragments of thinking, experiments, and ideas that refused to stay in my head."
+links = [
+  { twitter = "https://twitter.com/Aaxis_em" }
+]

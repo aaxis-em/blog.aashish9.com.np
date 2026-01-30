@@ -1,0 +1,5 @@
+baseURL = 'https://blog.aashish9.com.np/'
+languageCode = 'en'
+title = 'Blogs'
+theme = "blowfish"
+
