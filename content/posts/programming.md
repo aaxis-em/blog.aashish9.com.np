@@ -1,6 +1,6 @@
 ---
 title: "Thoughts on Programming"
-date: 2025-08-04
+date: 2024-03-04
 draft: false
 ---
 

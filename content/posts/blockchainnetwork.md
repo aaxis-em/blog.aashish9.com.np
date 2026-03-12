@@ -19,7 +19,7 @@ In the mentioned architecture Blockchain network is divided in basically 4 parts
 - Miners
 - User And Wallet
 
-Below is the the diagram representation of it (please toggle theme to see the edges sorry for inconvenience)
+Below is the the diagram representation of it.
 ![concept](/images/nodes.png)
 
 Now let me explain each parts
