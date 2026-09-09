@@ -9,4 +9,5 @@ mainSections = ["posts"]
 [homepage]
   layout = "list"
 
-
+[article]
+showTableOfContents = true
