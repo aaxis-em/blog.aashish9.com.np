@@ -173,6 +173,33 @@ The core idea is
 - Backward Pass: Error flows backwards → calculate how much to fix each weight
 - Update Weights: Adjust weights to reduce error
 
+### The Chain rule:
+
+The chain rule tells you how to find the total effect when something changes through multiple steps.
+
+In one sentence: If A affects B, and B affects C, then the total effect of A on C = (effect of A on B) × (effect of B on C)
+Lets take a component from our MLP, lets see how weight $w_1z$ affects cost function.
+
+![chainrule](/imgs/chainrule.png)
+
+The cost depends on w₁z through this path: w₁z → z → a₂ → a₀ → C
+
+$$\frac{\partial C}{\partial w_{1z}} = \frac{\partial C}{\partial a_0} \cdot \frac{\partial a_0}{\partial z} \cdot \frac{\partial z}{\partial w_{1z}}$$
+
+**Each term:**
+
+- $\frac{\partial z}{\partial w_{1z}} = a_1$ (because $z=w_1z*a_1+b_z$)
+- $\frac{\partial a_0}{\partial z} = \sigma'(z)$ (activation slope)
+- $\frac{\partial C}{\partial a_0} = 2(a_0 - y)$ (because $C=(a_0-y)^2$)
+
+**Final gradient:**
+$$\frac{\partial C}{\partial w_{1z}} = (a_0 - y) \cdot \sigma'(z) \cdot a_1$$
+We can apply chain rule according to bias and take out gradient in respect for it.
+Similarly we can derive for $w_11 Let's take component.
+![chainrule](/imgs/chainrule2.png)
+**Path**: x₁ → H → a₁ → z → a₀ → C 
+$$\frac{\partial C}{\partial w_{11}} = \frac{\partial C}{\partial a_0} \cdot \frac{\partial a_0}{\partial z} \cdot \frac{\partial z}{\partial a_1} \cdot \frac{\partial a_1}{\partial H} \cdot \frac{\partial H}{\partial w_{11}}$$
+
 ## Decision Trees (1986)
 
 ## Support Vector Machine (1992-1995)
