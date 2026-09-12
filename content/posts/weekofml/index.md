@@ -1,5 +1,5 @@
 ---
-title: "Week of ML"
+title: "ML Chronologically"
 showTableOfContents: true
 date: 2026-08-31
 draft: false
@@ -116,7 +116,7 @@ With conditional independence assumption (Naive Bayes):
 
 $$P(A|B,C,D,E,\ldots,N) = \frac{P(B|A) \cdot P(C|A) \cdot P(D|A) \cdot P(E|A) \cdots P(N|A) \cdot P(A)}{P(B,C,D,E,\ldots,N)}$$
 
-### Data Table
+### Example
 
 | Person | COVID (Yes/No) | Flu (Yes/No) | Fever (Yes/No) |
 | ------ | -------------- | ------------ | -------------- |
@@ -195,22 +195,165 @@ $$\frac{\partial C}{\partial w_{1z}} = \frac{\partial C}{\partial a_0} \cdot \fr
 **Final gradient:**
 $$\frac{\partial C}{\partial w_{1z}} = (a_0 - y) \cdot \sigma'(z) \cdot a_1$$
 We can apply chain rule according to bias and take out gradient in respect for it.
-Similarly we can derive for $w_11 Let's take component.
+Similarly we can derive for $w_11$ Let's take component.
 ![chainrule](/imgs/chainrule2.png)
-**Path**: x₁ → H → a₁ → z → a₀ → C 
-$$\frac{\partial C}{\partial w_{11}} = \frac{\partial C}{\partial a_0} \cdot \frac{\partial a_0}{\partial z} \cdot \frac{\partial z}{\partial a_1} \cdot \frac{\partial a_1}{\partial H} \cdot \frac{\partial H}{\partial w_{11}}$$
+**Path**: x₁ → H₁→ a₁ → z → a₀ → C
+$$\frac{\partial C}{\partial w_{11}} = \frac{\partial C}{\partial a_0} \cdot \frac{\partial a_0}{\partial z} \cdot \frac{\partial z}{\partial a_1} \cdot \frac{\partial a_1}{\partial H_1} \cdot \frac{\partial H_1}{\partial w_{11}}$$
 
 ## Decision Trees (1986)
 
+A decision tree is a method to make decision based on statement at parent node.If decision tree classifies thing it's called classification tree else if it predicts value it's regression tree.
+
+Example
+![decisiontree](/imgs/decisiontree.png)
+It's an example of regression tree as it predicts the value between and below something.
+
+### How to make decisiontree or how does it learn
+
+There is a problem on which feature to split first or last there are different ways to do that some of them are:
+
+1. **Information Gain (Entropy)** - Measures entropy reduction
+2. **Gini Gain (Gini Index)** - Measures impurity reduction
+3. **Gain Ratio** - Corrects for features with many values
+4. **Chi-Square Test** - Tests statistical significance
+5. **Variance Reduction** - For regression trees
+
+---
+
+#### Formulas
+
+| Metric                 | Formula                                                            |
+| ---------------------- | ------------------------------------------------------------------ |
+| **Information Gain**   | $IG(D,A) = Entropy(D) - \sum_v \frac{\|D_v\|}{\|D\|} Entropy(D_v)$ |
+| **Gini Gain**          | $GiniGain(D,A) = Gini(D) - \sum_v \frac{\|D_v\|}{\|D\|} Gini(D_v)$ |
+| **Gain Ratio**         | $GR(D,A) = \frac{IG(D,A)}{SplitInfo(D,A)}$                         |
+| **Chi-Square**         | $\chi^2 = \sum_{i,j} \frac{(Observed - Expected)^2}{Expected}$     |
+| **Variance Reduction** | $VR(D,A) = Var(D) - \sum_v \frac{\|D_v\|}{\|D\|} Var(D_v)$         |
+
+---
+
+### Example: Finding the Root Node Using Information Gain
+
+| Outlook  | Temperature | Humidity | Windy | Play?   |
+| -------- | ----------- | -------- | ----- | ------- |
+| sunny    | hot         | high     | false | **No**  |
+| sunny    | hot         | high     | true  | **No**  |
+| overcast | hot         | high     | false | **Yes** |
+| rain     | mild        | high     | false | **Yes** |
+| rain     | cool        | normal   | false | **Yes** |
+| rain     | cool        | normal   | true  | **No**  |
+| overcast | cool        | normal   | true  | **Yes** |
+| sunny    | mild        | high     | false | **No**  |
+| sunny    | cool        | normal   | false | **Yes** |
+| rain     | mild        | normal   | false | **Yes** |
+| sunny    | mild        | normal   | true  | **Yes** |
+| overcast | mild        | high     | true  | **Yes** |
+| overcast | hot         | normal   | false | **Yes** |
+| rain     | mild        | high     | true  | **No**  |
+
+**Summary**: 14 total, 9 Yes, 5 No
+
+---
+
+#### Step 1: Calculate Initial Entropy
+
+$$Entropy(D) = -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right)$$
+
+$$= -0.643(-0.644) - 0.357(-1.485) = 0.94 \text{ bits}$$
+
+---
+
+#### Step 2: Try Splitting on "Outlook"
+
+#### Sunny (5 records): 2 Yes, 3 No
+
+$$Entropy(Sunny) = -\frac{2}{5}\log_2\left(\frac{2}{5}\right) - \frac{3}{5}\log_2\left(\frac{3}{5}\right) = 0.971$$
+
+#### Overcast (4 records): 4 Yes, 0 No
+
+$$Entropy(Overcast) = 0 \text{ (Pure!)}$$
+
+#### Rain (5 records): 3 Yes, 2 No
+
+$$Entropy(Rain) = -\frac{3}{5}\log_2\left(\frac{3}{5}\right) - \frac{2}{5}\log_2\left(\frac{2}{5}\right) = 0.971$$
+
+---
+
+#### Step 3: Calculate Information Gain
+
+$$IG(Outlook) = Entropy(D) - \left[\frac{5}{14}(0.971) + \frac{4}{14}(0) + \frac{5}{14}(0.971)\right]$$
+
+$$= 0.94 - 0.694 = 0.246$$
+
+---
+
+#### Step 4: Compare with Other Features
+
+| Feature     | Information Gain |
+| ----------- | ---------------- |
+| **Outlook** | **0.246**        |
+| Humidity    | 0.151            |
+| Windy       | 0.049            |
+| Temperature | 0.029            |
+
+---
+
+#### Result
+
+**The root node should split on "Outlook"** because it has the highest information gain (0.246).
+
+![decisiontree2](/imgs/decisiontree2.png)
+
 ## Support Vector Machine (1992-1995)
+
+Support Vector Machine(SVM) is another supervised learning technique for classification and regression task.It tries to find the best hyperplane that separates different classes in the data.The main goal of SVM is to maximize the margin between the two classes. The larger the margin the better the model performs on new and unseen data.
+![svm](/imgs/svm.png)
+Here using svm we try to maximized d as much as possible. The two closest data to hyperplane is called support vectors.
+
+If data is not linearly separatable we use kernel to map then in higher dimenstion space and then use svm
 
 ## Bagging (1994)
 
-## AdaBoost (1995)
+Is Parallel Ensemble learning technique.Bagging or Bootstrap Aggregating, the idea is to traing multiple base models independently and in parallel on different bootstrapped sample of the training data and Aggregate them.
+![bagging](/imgs/bagging.png)
 
-## Recurrent Neural Network ()
+## Boosting (1995)
+
+Boosting is a sequential ensemble learning technique.It is a process that uses a set of machine learning algotithms to combine weak learner to form strong learners in order to increase the accuracy of the model.
+
+The basic principle bwhins booating is to generate multiple weak learners and combine heir prediction to form one strong rule.
+![boosting](/imgs/boosting.png)
+If a classifier false predict a data then it is assigned to the next base learner with a higher weigtage.
+The above example is a type of boosting called adaptive boosting
+
+## Recurrent Neural Network (1986)
+
+We saw Neural networks for constant size of input but what if input is variable size like time series data(eg stock data,power consumption etc).In this cases we use Recurrent Neural Networs.
+
+### RNN architecture
+
+![rnn](/imgs/rnnarch.png)
+
+Although the developement it is not used widely because of the problem called vanishing gradient. When we unroll the rnn more it causes vanishing of gradient while backpropagaton
+
+### RNN unrolling (Vanishing/Exploding Gradient)
+
+RNN are unrolled as follow when data ingestion during training or inference.
+![rnnun](/imgs/rnnunrolling.png)
+
+While backpropagaton we multiply weight each time in gradient and if it is < 1 it shrink every time and vanishes if unrolled too much.
+
+Why the term $W_2$ comes in multiply because as in chain rule we take partial diff of summations during unrolling with respect to $W_1$ or layer 1 term and we have $W_1$ terms whose diff is 1 and $W_2$ comes on gradient due to chain rule.Similarly if the weight in unrolling step is greater than 1 it causes exploding gradient.
 
 ## Long Short Term Memory (1997)
+
+To solve vanishing gradient problem there comes LSTM(Long Short Term Memory).LSTM is a type of RNN.LSTM uses two paths to make prediction one for long term and other for short term.
+
+![lstm](/imgs/lstm.png)
+
+It's complicated i know but take it one layer at a time and you will get it. The input gate is to determine the long term memory and output gate is to determine short term memory there are two activation function sigmoid and tanh used for different cases.
+
+LSTM are also unrolled for time varying data or data having variable input size.
 
 ## Random Forests (2004)
 
