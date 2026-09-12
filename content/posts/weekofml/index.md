@@ -357,13 +357,139 @@ LSTM are also unrolled for time varying data or data having variable input size.
 
 ## Random Forests (2004)
 
+Random forests is one of the bagging method(parallel ensemble learning) where we create bootstrapped dataset and then create decision tree using that bootstrapped data, we repeat these steps multiple times and vote for out while infernce. Building decison tree is explained above and also bagging.
+
+For evaluation we use out of bag sample.
+
+Also wer can change the number of variable used per step and build random forest evaluate it and then use the one with highest accuracy.
+
+Random forest can also be used for missing value and clustering.
+
 ## Gradient Boosting Machine (2001)
+
+It is one of the type of Boosting expalined above.In gradient boosting base learners are generated sequentially in such a way that the present base learner is always more effective than previous one.
+We optimize the loss function of the previous learner.
+
+The 3 components here are :
+
+- Loss function needs to be minimized
+- Weak learner for prediction and forming then strong.
+- Additive model for regularizing loss function.Regularizing loss function means adding an extra penalty to the normal loss so the model is discouraged from becoming unnecessarily complex or having very large weights.
+
+## Restricted Boltzmann Machine (2002)
+
+It it porbablistic unsuprevised learning technique mostly used in case of recommendation system.
+It has two layer visible and hidden and they are fullly connected trains like regular mlp.
+![rbm](/imgs/rbm.png)
+for example in video recommendation input can be video and hidden layer is learned tenant feature can be type of it and learning can be done through type of video user watches.
 
 ## Deep Belief Network (2006)
 
-## CNNs
+It is a composition of stack of unsupervised networks such as Restricted Boltzmann Machine.
+The hidden layer in stack first is the visible layer fore the stack second.
+Deep Belief Network has connections with RBM and not between RBMs.
+![dbn](/imgs/dbn.png)
+
+## CNNs (1998)
+
+CNNs were introduced by Yann LeCun through famous LeNet-5.The need of CNN can be explaind as follow
+
+- In fully connected network the connections becomes complex and computationally inefficient because of enromous image size
+- A fully connected network doesn't naturally understand that nearby pixels are related.
+
+### High level design of Convolution on Neural Nets
+
+![conv](/imgs/conv.png)
+To explain images goes through convolution layer and feature vector is extracted, the flattened feature vector is passed to Fully connected layer for prediction .
+
+### Components of CNNs
+
+#### Padding
+
+As the edge can contribute less to feature as they will be used once only while shifting filter we use padding adding extra layer of pixel usually 0.
+
+#### Stride
+
+Stride mean what step filter takes while moving both horizontally and vertically.
+
+#### Filters
+
+Filters are used for different purpose like edge detection,blur,sharpen,gaussian blue etc and they are also learned during training process.
+
+Input Image (6×6)
+
+|     |     |     |     |     |     |
+| --- | --- | --- | --- | --- | --- |
+| 10  | 20  | 30  | 40  | 50  | 60  |
+| 15  | 25  | 35  | 45  | 55  | 65  |
+| 20  | 30  | 40  | 50  | 60  | 70  |
+| 25  | 35  | 45  | 55  | 65  | 75  |
+| 30  | 40  | 50  | 60  | 70  | 80  |
+| 35  | 45  | 55  | 65  | 75  | 85  |
+
+Filter (3×3)
+
+|     |     |     |
+| --- | --- | --- |
+| -1  | 0   | 1   |
+| -2  | 0   | 2   |
+| -1  | 0   | 1   |
+
+Output (4×4)
+
+Input \* filter=
+| | | | |
+| --- | --- | --- | --- |
+| 80 | 80 | 80 | 80 |
+| 80 | 80 | 80 | 80 |
+| 80 | 80 | 80 | 80 |
+| 80 | 80 | 80 | 80 |
+
+##### Formula For Output Height and Width
+
+$$N_{out,h} = \left\lfloor \frac{N_{in,h} - F_h + 2P}{S} \right\rfloor + 1$$
+
+$$N_{out,w} = \left\lfloor \frac{N_{in,w} - F_w + 2P}{S} \right\rfloor + 1$$
+
+where F if Filter size S is Stride size P is No of layer of Padding
+
+#### Polling Layer
+
+It is a way to reduce the spatial size of feature maps while keeping the most important information. Mainly of 2 types Max Polling and Average Polling.
+
+##### Input matrix
+
+|     |     |     |     |
+| --- | --- | --- | --- |
+| 8   | 5   | 6   | 2   |
+| 3   | 9   | 1   | 4   |
+| 7   | 2   | 8   | 5   |
+| 1   | 6   | 3   | 9   |
+
+Pool size 2 by 2 and stride of 2
+
+##### Output matrix
+
+|     |     |
+| --- | --- |
+| 9   | 6   |
+| 7   | 9   |
+
+##### Output size
+
+$$N_{out,h} = \left\lfloor \frac{N_{in,h} - F_h}{S} \right\rfloor + 1$$
+
+$$N_{out,w} = \left\lfloor \frac{N_{in,w} - F_w}{S} \right\rfloor + 1$$
+
+Padding is not used in polling generally.
+![convg](/imgs/convgenerally.png)
+While designing convulation nural network we repeat the stack of conv layer and pool
 
 ## AlexNet (2012)
+
+One of the Famous architecture based on CNNs It has 8 layers and nearly 60M parameter
+![alexnet](/imgs/alexnetarch.png)
+Use [this](https://tensorspace.org/index.html) for visualization
 
 ## Word2Vec and GloVe(2013-2014)
 
