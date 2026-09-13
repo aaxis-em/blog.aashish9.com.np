@@ -7,7 +7,7 @@ draft: false
 
 ## Introduction
 
-Tech industry is on steroid with ml the developement that took more than 10 yrs are happenning less than a year because of AI and many stuff are taken as granted behaves as it is how it is supposed to be but I don't want to take it as granted and as a black box i want to understand it all from the begining.
+Tech industry is on steroid with ml the development that took more than 10 yrs are happenning less than a year because of AI and many stuff are taken as granted behaves as it is how it is supposed to be but I don't want to take it as granted and as a black box i want to understand it all from the begining.
 
 ## Motivation
 
@@ -334,7 +334,7 @@ We saw Neural networks for constant size of input but what if input is variable 
 
 ![rnn](/imgs/rnnarch.png)
 
-Although the developement it is not used widely because of the problem called vanishing gradient. When we unroll the rnn more it causes vanishing of gradient while backpropagaton
+Although the development it is not used widely because of the problem called vanishing gradient. When we unroll the rnn more it causes vanishing of gradient while backpropagaton
 
 ### RNN unrolling (Vanishing/Exploding Gradient)
 
@@ -704,3 +704,9 @@ Is the process of mapping input value from a large set of output value in as sml
 Example reducing from FP32 to INT8.One cool engineering project using it is [Airllm](https://github.com/lyogavin/airllm)
 
 ## World Model and JEPA ()
+
+## Reference
+
+1. [StatQuest with Josh Starmer](https://www.youtube.com/@statquest)
+2. [3Blue1Brown](https://www.youtube.com/@3blue1brown)
+3. [Datamining](https://comp.ku.edu.np/)
