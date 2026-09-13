@@ -589,6 +589,40 @@ Advance version of Gradient boosting method that is designed to focus on computa
 
 ## Transformer "Attention is all you need" (2017)
 
+### Architecture
+
+It is neural network with different mechanism to understand properly.Also it contains encoder decoder stack.
+![attention](/imgs/transformer.png)
+
+### Components
+
+#### Word Embeddings
+
+I won't talk much just to represent word to number read above in its section.
+
+#### Positional Encoding
+
+Position of word matters in sentences like "I eat chicken" and "Chicken eat me" they have same words but completely different meaning so we need to use unique number to represent words position which is done by sine and cosine squiggle alternatively.
+
+#### Self Attention
+
+With self attention we calculate similarity of a word with itself and other Its value Query,key and value are calculated from multiplying the word embedding + Positional encoding with weights.
+![selfatt](/imgs/selfattention.png)
+
+#### Residual connection
+
+Ther self attention value is again added with word embedding+positional embedding the connection is called connection residual connection.It is useful because:
+
+1. It prevents information Loss
+2. It makes learning an identity function easy
+3. It helps gradients flow through deep Transformers
+
+#### Encoder Decoder Attention
+
+Same like self attention mechanism but we take value and key from encoders and query from decoder and calculate similarity and which give word that has more context and in our example which to translate first.
+
+In paper "Attention is all you need" stack of 8 self attention was used.
+
 ## BERT "Encoder only transformer" (2018)
 
 - Encoder only Transformers.
