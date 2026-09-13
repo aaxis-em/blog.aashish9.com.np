@@ -493,26 +493,180 @@ Use [this](https://tensorspace.org/index.html) for visualization
 
 ## Word2Vec and GloVe(2013-2014)
 
+Word2Vec is a **neural network-based** method that learns word embeddings from large text corpora. Developed by Google in 2013.
+
+**Main idea:** A word is best understood by the company it keeps (context words around it).
+![word2vec](/imgs/word2vec.png)
+
+So the training process is like we assign 1 to first word and we want network to predict the second word if not we calculate cost using cross entropy loss and adjust weight throught backpropagaton.
+This step is followed for each word to predict next word now after training the weight on first layer gives its vector embeddings.Also it's not teddy bear it's softmax ha ha.
+After training we see.
+![word2vecg](/imgs/word2vecgraph.png)
+As above the words "Dhoom" and "Dhoom" are close as the are interpreted as similar word as word before them and after are same.
+
+GloVe stands for Global Vector.GloVe is a **matrix factorization-based** method that combines:
+
+- Global matrix factorization (captures global statistics)
+- Local context windows (captures local context)
+
+#### Data
+
+**Sentence 1:** I love physics
+**Sentence 2:** I love geeking
+
+**Vocabulary:** [I, love, physics, geeking]
+
+---
+
+#### Window Size = 1
+
+#### Co-occurrence Matrix
+
+|             | I   | love | physics | geeking |
+| ----------- | --- | ---- | ------- | ------- |
+| **I**       | 0   | 2    | 0       | 0       |
+| **love**    | 2   | 0    | 1       | 1       |
+| **physics** | 0   | 1    | 0       | 0       |
+| **geeking** | 0   | 1    | 0       | 0       |
+
+#### Matrix Factorization
+
+$$X \approx WC^T$$
+
+Where $W$ contains word vectors (reduced to 2 dimensions):
+We first randomly assign W and C and try to predict X co-occurrence matrix calcuate error and fix our matrix.
+| Word | Vector |
+| ------- | -------------- |
+| I | $[0.48, 0.52]$ |
+| love | $[0.72, 0.75]$ |
+| physics | $[0.71, 0.74]$ |
+| geeking | $[0.70, 0.73]$ |
+
+#### Key Observation
+
+**physics** and **geeking** have identical co-occurrence patterns → **similar vectors**
+
+Because both appear only with **love** in window of 1.
+
+#### The Intuition
+
+$$\text{Text} \rightarrow \text{Co-occurrence} \rightarrow \text{Matrix} \rightarrow \text{Factorization} \rightarrow \text{Embeddings}$$
+
+**A word's meaning is learned from the company it keeps.**
+
 ## VGG16 and GoogleNet (2014)
+
+They are CNN based architecture VGG16 has 16 layers and about around 138 M parameters .
+![vgg16](/imgs/vgg16.png)
 
 ## Sequence to Sequence (2014)
 
+Sequence to Sequence is Encoder Decoder based Neural Net. Internally it uses LSTM heavely insider encoder and decoder stack. Used in translation and stuffs.In our example we will see english to spanish translation.
+![seq2seq](/imgs/seq2seq.png)
+It is sequential and slow.We unroll lstm to remember long context.
+
+#### Teacher Forcing
+
+Plugging in the known words and stopping at the known phrase length, rather thean using predicted token for everything if wrong.
+
 ## Attention (2015)
+
+Problem with seq2seq is unrolling the LSTMs compresses the entire input sentence into single context vector, it forgets word inputted early on for say 1000 page doc and so.
+
+So the main idea of attention is to add a bunch of new paths from the encoder to the decoder,one per input value,so that each step of the decoder can directly access input values.
+![attention](/imgs/attention.png)
+So the beneift is giving the decoder direct access to different parts of the input sequence instead of forcing all information through one final encoder state.
 
 ## ResNet (2015)
 
+- It it a type of CNN containing 152 layers(approx) overcomes vanishing gradient due to grawth of CNNs
+- ResNet include "skip connection" feature which enables training of multiple deep layers(152 layers) without vanishing gradient issues.
+  ![resnet](/imgs/resnet.png)
+
 ## XGBoost (2014)
+
+Advance version of Gradient boosting method that is designed to focus on computaional speed and model efficiency.Supports distributed computation,out of core computing,parallelization,cache optimization
 
 ## Transformer "Attention is all you need" (2017)
 
 ## BERT "Encoder only transformer" (2018)
 
+- Encoder only Transformers.
+- It helps cluster similar sentences or even documents.
+- Only use self attention and can create Context aware embedding.
+- The ability to cluster similar sentences and documents is the foundation for something called Retrieval Augumented Generation or RAG.
+- Other cool usecase can be sentiment analysis.
+
+#### Training
+
+While training it goes througt 3 passes each of:
+
+1. Pretraining to understand language
+2. Fine tuining to learn specific task.
+
 ## GPT series "Decoder only transformer" (2018 onward)
+
+- Decoder only Transformer
+
+### Training
+
+It uses transfer learning technique
+
+1. Pretraining: Train the GPT arch to understand what language is
+2. Finetuning: Uses transfer learning to make GPT architecture perform well on specific task(Transferring knowledge)
+
+#### Problem with fine tuining
+
+- Still too much data required.
+- Overfitting is easy.
+- Not how human learns.
+- Not fluid to understand broad language processing.
+
+### Meta learning
+
+1. Zero Shot learning
+   It was introduced in GPT2 perform specific task when given just an instruction and input.
+2. One shot learning
+   Giving 1 example.
+3. Fwe shot learning
+   Giving multiple example.
+
+GPT 3 used all of this learning technique.
 
 ## Diffusion Model (2015 theory,2020 practical products)
 
+Diffusion models are generative model used for images genration video generation an so on.
+It really mathematically heavy I will understand it more and write about it in future.
+
+### CLIP (By openai)
+
+CLIP is model by openai whic contains image encoder and text encoder and image with their caption lies close in multi dimensional space I mean a image embedding and it's caption text embedding.
+![clip](/imgs/clip.png)
+
+### General Algorithm for Training Diffusion models
+
+![diffusion](/imgs/diffusion.png)
+
 ## Multimodal Models (2020)
 
-## Lightweight distilled,quantized,compressed model (2020)
+- Here in multimodal modal referes different data modality.
+- Different technique were used to support multi modal some are:
+
+1. Feature level fusion
+   ![flvlf](/imgs/featurelvlfusion.png)
+2. Native Multimodality
+   ![native](/imgs/native.png)
+
+## Lightweight Distillation,quantization(2020)
+
+### Distillation
+
+The process of transfering knowledge from a larger ofter more complex model reffered to as the teacher to a similar more efficient model.
+![distillation](/imgs/distillation.png)
+
+### Quantization
+
+Is the process of mapping input value from a large set of output value in as smller set.Reducing the precision of weight value in neural nets.Also the activation func.
+Example reducing from FP32 to INT8.One cool engineering project using it is [Airllm](https://github.com/lyogavin/airllm)
 
 ## World Model and JEPA ()
