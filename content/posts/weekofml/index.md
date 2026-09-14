@@ -1,5 +1,5 @@
 ---
-title: "ML Chronologically"
+title: "ML Chronologically:From Linear Regression to World Models"
 showTableOfContents: true
 date: 2026-08-31
 draft: false
