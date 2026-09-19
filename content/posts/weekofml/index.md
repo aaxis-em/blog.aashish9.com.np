@@ -11,7 +11,7 @@ Tech industry is on steroid with ml the development that took more than 10 yrs a
 
 ## Motivation
 
-I was semi unemployed and bored so i dedicated a week for ml to learn it all the way from linear regression to multimodel and state of art research on world models.This is my act to document stuff I still don't have habit to document digitally I have a notebook documented and writing this after that week hope you will like it if not i don't even care it's for me bitch.
+I was semi unemployed and bored so i dedicated a week for ml to learn it all the way from linear regression to multimodel and state of the art,research on world models.This is my act to document stuff I still don't have habit to document digitally I have a notebook documented and writing this after that week hope you will like it if not i don't even care it's for me bitch.
 
 ## Linear Regression (1800)
 
@@ -674,7 +674,7 @@ It really mathematically heavy I will understand it more and write about it in f
 
 ### CLIP (By openai)
 
-CLIP is model by openai whic contains image encoder and text encoder and image with their caption lies close in multi dimensional space I mean a image embedding and it's caption text embedding.
+CLIP Contrastive Language-Image Pre-Training is model by openai whic contains image encoder and text encoder and image with their caption lies close in multi dimensional space I mean a image embedding and it's caption text embedding.
 ![clip](/imgs/clip.png)
 
 ### General Algorithm for Training Diffusion models
@@ -703,7 +703,35 @@ The process of transfering knowledge from a larger ofter more complex model reff
 Is the process of mapping input value from a large set of output value in as smller set.Reducing the precision of weight value in neural nets.Also the activation func.
 Example reducing from FP32 to INT8.One cool engineering project using it is [Airllm](https://github.com/lyogavin/airllm)
 
-## World Model and JEPA ()
+## World Model and JEPA (2022)
+
+LeCun's Philosophy "Real Intelligence does not start in language. It starts in the world."
+Development of JEPA follows the usage of multiple stepping stones like Siamese Network,Representation collapse,Barlow Twins.
+
+**World Model** let's put it in this way common sense can be seen as a collection of models of the world that can tell an agent what is likely,what is plausible and what is impossible.Using such models, we can learn new skills with very few trials. We can predict consequence, reason and plan.
+
+**JEPA** stands for Joint Embedding Predictive Architecture.
+
+As the name suggest we observe environment at time x(t) pass it through encoder for embedding and try to predic embedding at x(t+1) also observe at x(t+1) and try to minimize prediction error. In this process the network learn the world model.Eg trying to predict what comes next in dash cam of camera.
+![jepa](/imgs/jepa.png)
+
+### V-JEPA and VLM(Vison Language Models) and VLA(Vison Language Action) and VL-JEPA
+
+LeCun puts an interesting idea "How can an agent perform task if it doesn't know the consequence of it's action?"
+
+He says the JEPA will be developed for different task than llm like vision stuffs physical intelligence and slowly it will replace llm he says we achieved intelligence in language first which is not natural like in human we achieve it in vision or on experiece(eg gravity touch and so).
+
+#### V-JEPA and VLM
+
+Both are made to understand image and video properly.CLIP from openai is example of VLM.In V-JEPA the network doesn't learn anything about language just visuals.
+JEPA/VL-JEPA research has demonstrated strong parameter/data efficiency in specific controlled benchmarks, while V-JEPA itself is primarily a visual representation/world-modeling approach rather than a direct VLM competitor.
+
+#### Problem with VLA
+
+- Difficulty of scaling behavior cloning
+- Lack of explicit planning
+
+Both are tyied to solve by world model.
 
 ## Reference
 
