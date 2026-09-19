@@ -1,5 +1,5 @@
 ---
-title: "ML Chronologically:From Linear Regression to World Models"
+title: "ML Chronologically: From Linear Regression to World Models"
 showTableOfContents: true
 date: 2026-08-31
 draft: false
@@ -7,15 +7,15 @@ draft: false
 
 ## Introduction
 
-Tech industry is on steroid with ml the development that took more than 10 yrs are happenning less than a year because of AI and many stuff are taken as granted behaves as it is how it is supposed to be but I don't want to take it as granted and as a black box i want to understand it all from the begining.
+Tech industry is on steroid with ml the development that took more than 10 yrs are happening less than a year because of AI and many stuff are taken as granted behaves as it is how it is supposed to be but I don't want to take it as granted and as a black box i want to understand it all from the beginning.
 
 ## Motivation
 
-I was semi unemployed and bored so i dedicated a week for ml to learn it all the way from linear regression to multimodel and state of the art,research on world models.This is my act to document stuff I still don't have habit to document digitally I have a notebook documented and writing this after that week hope you will like it if not i don't even care it's for me bitch.
+I was semi unemployed and bored so i dedicated a week for ml to learn it all the way from linear regression to multimodal and state of the art,research on world models.This is my act to document stuff I still don't have habit to document digitally I have a notebook documented and writing this after that week hope you will like it if not i don't even care it's for me bitch.
 
 ## Linear Regression (1800)
 
-Linear Regression is simplest fundamental supervised learning algorithm used to model relation between dependent variable and one or more independent variable.The goal is to find the best fitting straight line or hyperplane that represents the association between these variable.
+Linear Regression is simplest fundamental supervised learning algorithm used to model relation between dependent variables and one or more independent variables.The goal is to find the best fitting straight line or hyperplane that represents the association between these variables.
 ![linearregression](/imgs/linearregression.png)
 
 The training process looks like a random line is drawn and error is calculated MSE or RSS and we try to minimize error by changing slope and intercept according to error.
@@ -30,7 +30,7 @@ KNN Classification → majority vote of nearest neighbors.
 KNN Regression → average of nearest neighbors' values.
 ![knn](/imgs/knn.png)
 
-In above example k value was 5 what if k value was 3 it will be classified as circle false so value of k is hyperparamater and tuned according to data during validation step.Other use case is clustering using distance matrix.
+In above example k value was 5 what if k value was 3 it will be classified as circle false so value of k is hyperparameter and tuned according to data during validation step.Other use case is clustering using distance matrix.
 
 {{< katex >}}
 
@@ -92,7 +92,7 @@ One complete pass through the entire training dataset is called an **epoch**.
 
 ## Naive Bayes (1960)
 
-Also supervised learning algorithm based on bayes theorem. Here, Naive means every variable used is independent.
+Also supervised learning algorithm based on Bayes theorem. Here, Naive means every variable used is independent.
 
 Bayes' theorem describes how we update the probability of an event when we obtain new evidence.
 
@@ -319,16 +319,16 @@ Is Parallel Ensemble learning technique.Bagging or Bootstrap Aggregating, the id
 
 ## Boosting (1995)
 
-Boosting is a sequential ensemble learning technique.It is a process that uses a set of machine learning algotithms to combine weak learner to form strong learners in order to increase the accuracy of the model.
+Boosting is a sequential ensemble learning technique.It is a process that uses a set of machine learning algorithms to combine weak learner to form strong learners in order to increase the accuracy of the model.
 
-The basic principle bwhins booating is to generate multiple weak learners and combine heir prediction to form one strong rule.
+The basic principle behind boosting is to generate multiple weak learners and combine heir prediction to form one strong rule.
 ![boosting](/imgs/boosting.png)
-If a classifier false predict a data then it is assigned to the next base learner with a higher weigtage.
+If a classifier falsely predicts a data then it is assigned to the next base learner with a higher weight.
 The above example is a type of boosting called adaptive boosting
 
 ## Recurrent Neural Network (1986)
 
-We saw Neural networks for constant size of input but what if input is variable size like time series data(eg stock data,power consumption etc).In this cases we use Recurrent Neural Networs.
+We saw Neural networks for constant size of input but what if input is variable size like time series data(eg stock data,power consumption etc).In this cases we use Recurrent Neural Networks.
 
 ### RNN architecture
 
@@ -353,15 +353,15 @@ To solve vanishing gradient problem there comes LSTM(Long Short Term Memory).LST
 
 It's complicated i know but take it one layer at a time and you will get it. The input gate is to determine the long term memory and output gate is to determine short term memory there are two activation function sigmoid and tanh used for different cases.
 
-LSTM are also unrolled for time varying data or data having variable input size.
+LSTMs are also unrolled for time varying data or data having variables input size.
 
 ## Random Forests (2004)
 
-Random forests is one of the bagging method(parallel ensemble learning) where we create bootstrapped dataset and then create decision tree using that bootstrapped data, we repeat these steps multiple times and vote for out while infernce. Building decison tree is explained above and also bagging.
+Random forests is one of the bagging method(parallel ensemble learning) where we create bootstrapped dataset and then create decision tree using that bootstrapped data, we repeat these steps multiple times and vote for out while inference. Building decision tree is explained above and also bagging.
 
 For evaluation we use out of bag sample.
 
-Also wer can change the number of variable used per step and build random forest evaluate it and then use the one with highest accuracy.
+Also we can change the number of variables used per step and build random forest evaluate it and then use the one with highest accuracy.
 
 Random forest can also be used for missing value and clustering.
 
@@ -378,8 +378,8 @@ The 3 components here are :
 
 ## Restricted Boltzmann Machine (2002)
 
-It it porbablistic unsuprevised learning technique mostly used in case of recommendation system.
-It has two layer visible and hidden and they are fullly connected trains like regular mlp.
+It it probabilistic unsupervised learning technique mostly used in case of recommendation system.
+It has two layer visible and hidden and they are fully connected trains like regular mlp.
 ![rbm](/imgs/rbm.png)
 for example in video recommendation input can be video and hidden layer is learned tenant feature can be type of it and learning can be done through type of video user watches.
 
@@ -392,9 +392,9 @@ Deep Belief Network has connections with RBM and not between RBMs.
 
 ## CNNs (1998)
 
-CNNs were introduced by Yann LeCun through famous LeNet-5.The need of CNN can be explaind as follow
+CNNs were introduced by Yann LeCun through famous LeNet-5.The need of CNN can be explained as follow
 
-- In fully connected network the connections becomes complex and computationally inefficient because of enromous image size
+- In fully connected network the connections becomes complex and computationally inefficient because of enormous image size
 - A fully connected network doesn't naturally understand that nearby pixels are related.
 
 ### High level design of Convolution on Neural Nets
@@ -451,7 +451,7 @@ $$N_{out,h} = \left\lfloor \frac{N_{in,h} - F_h + 2P}{S} \right\rfloor + 1$$
 
 $$N_{out,w} = \left\lfloor \frac{N_{in,w} - F_w + 2P}{S} \right\rfloor + 1$$
 
-where F if Filter size S is Stride size P is No of layer of Padding
+where F is Filter size, S is Stride size, P is No of layer of Padding
 
 #### Polling Layer
 
@@ -481,9 +481,9 @@ $$N_{out,h} = \left\lfloor \frac{N_{in,h} - F_h}{S} \right\rfloor + 1$$
 
 $$N_{out,w} = \left\lfloor \frac{N_{in,w} - F_w}{S} \right\rfloor + 1$$
 
-Padding is not used in polling generally.
+Padding is not used in pooling generally.
 ![convg](/imgs/convgenerally.png)
-While designing convulation nural network we repeat the stack of conv layer and pool
+While designing convolution neural network we repeat the stack of conv layer and pool
 
 ## AlexNet (2012)
 
@@ -498,7 +498,7 @@ Word2Vec is a **neural network-based** method that learns word embeddings from l
 **Main idea:** A word is best understood by the company it keeps (context words around it).
 ![word2vec](/imgs/word2vec.png)
 
-So the training process is like we assign 1 to first word and we want network to predict the second word if not we calculate cost using cross entropy loss and adjust weight throught backpropagaton.
+So the training process is like we assign 1 to first word and we want network to predict the second word if not we calculate cost using cross entropy loss and adjust weight throught backpropagation.
 This step is followed for each word to predict next word now after training the weight on first layer gives its vector embeddings.Also it's not teddy bear it's softmax ha ha.
 After training we see.
 ![word2vecg](/imgs/word2vecgraph.png)
@@ -669,7 +669,7 @@ GPT 3 used all of this learning technique.
 
 ## Diffusion Model (2015 theory,2020 practical products)
 
-Diffusion models are generative model used for images genration video generation an so on.
+Diffusion models are generative model used for images generation video generation an so on.
 It really mathematically heavy I will understand it more and write about it in future.
 
 ### CLIP (By openai)
@@ -683,8 +683,8 @@ CLIP Contrastive Language-Image Pre-Training is model by openai whic contains im
 
 ## Multimodal Models (2020)
 
-- Here in multimodal modal referes different data modality.
-- Different technique were used to support multi modal some are:
+- Here in multimodal modal refers different data modality.
+- Different technique were used to support multimodal some are:
 
 1. Feature level fusion
    ![flvlf](/imgs/featurelvlfusion.png)
@@ -695,12 +695,12 @@ CLIP Contrastive Language-Image Pre-Training is model by openai whic contains im
 
 ### Distillation
 
-The process of transfering knowledge from a larger ofter more complex model reffered to as the teacher to a similar more efficient model.
+The process of transferring knowledge from a larger often more complex model refered to as the teacher to a similar more efficient model.
 ![distillation](/imgs/distillation.png)
 
 ### Quantization
 
-Is the process of mapping input value from a large set of output value in as smller set.Reducing the precision of weight value in neural nets.Also the activation func.
+Is the process of mapping input value from a large set of output value in as smaller set.Reducing the precision of weight value in neural nets.Also the activation function.
 Example reducing from FP32 to INT8.One cool engineering project using it is [Airllm](https://github.com/lyogavin/airllm)
 
 ## World Model and JEPA (2022)
@@ -708,18 +708,18 @@ Example reducing from FP32 to INT8.One cool engineering project using it is [Air
 LeCun's Philosophy "Real Intelligence does not start in language. It starts in the world."
 Development of JEPA follows the usage of multiple stepping stones like Siamese Network,Representation collapse,Barlow Twins.
 
-**World Model** let's put it in this way common sense can be seen as a collection of models of the world that can tell an agent what is likely,what is plausible and what is impossible.Using such models, we can learn new skills with very few trials. We can predict consequence, reason and plan.
+**World Model** let's put it in this way common sense can be seen as a collection of models of the world that can tell an agent what is likely,what is plausible and what is impossible.Using such models, we can learn new skills with very few trials. We can predict consequences, reason and plan.
 
 **JEPA** stands for Joint Embedding Predictive Architecture.
 
-As the name suggest we observe environment at time x(t) pass it through encoder for embedding and try to predic embedding at x(t+1) also observe at x(t+1) and try to minimize prediction error. In this process the network learn the world model.Eg trying to predict what comes next in dash cam of camera.
+As the name suggest we observe environment at time x(t) pass it through encoder for embedding and try to predict embedding at x(t+1) also observe at x(t+1) and try to minimize prediction error. In this process the network learn the world model.Eg trying to predict what comes next in dash cam of camera.
 ![jepa](/imgs/jepa.png)
 
-### V-JEPA and VLM(Vison Language Models) and VLA(Vison Language Action) and VL-JEPA
+### V-JEPA and VLM(Vison Language Models) and VLA(Vision Language Action) and VL-JEPA
 
-LeCun puts an interesting idea "How can an agent perform task if it doesn't know the consequence of it's action?"
+LeCun puts an interesting idea "How can an agent perform task if it doesn't know the consequences of it's action?"
 
-He says the JEPA will be developed for different task than llm like vision stuffs physical intelligence and slowly it will replace llm he says we achieved intelligence in language first which is not natural like in human we achieve it in vision or on experiece(eg gravity touch and so).
+He says the JEPA will be developed for different task than llm like vision stuffs physical intelligence and slowly it will replace llm he says we achieved intelligence in language first which is not natural like in human we achieve it in vision or on experience(eg gravity touch and so).
 
 #### V-JEPA and VLM
 
@@ -731,7 +731,7 @@ JEPA/VL-JEPA research has demonstrated strong parameter/data efficiency in speci
 - Difficulty of scaling behavior cloning
 - Lack of explicit planning
 
-Both are tyied to solve by world model.
+Both are tried to be solve by world model.
 
 ## Reference
 
