@@ -2,6 +2,7 @@
 title: "How does a blockchain network work?"
 date: 2025-08-15
 draft: false
+description: "Learn how blockchain networks work, including full nodes, miners, seed servers, transaction propagation, peer-to-peer networking, and a Go implementation."
 tags:
   - blockchain
   - blockchain-architecture

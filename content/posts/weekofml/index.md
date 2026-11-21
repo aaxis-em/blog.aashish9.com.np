@@ -3,6 +3,7 @@ title: "ML Chronologically: From Linear Regression to World Models"
 showTableOfContents: true
 date: 2026-08-31
 draft: false
+description: "Explore the evolution of machine learning, from linear regression and neural networks to transformers, generative AI, and modern world models."
 tags:
   - machine-learning
   - deep-learning

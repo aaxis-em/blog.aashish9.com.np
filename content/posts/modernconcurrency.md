@@ -2,6 +2,7 @@
 title: "Concurrency for the Bold: A Modern C++ Guide"
 date: 2025-09-21
 draft: false
+description: "A practical guide to modern C++ concurrency covering threads, mutexes, race conditions, atomic operations, condition variables, and C++20 jthread."
 tags:
   - cpp
   - modern-cpp
