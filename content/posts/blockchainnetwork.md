@@ -2,6 +2,19 @@
 title: "How does a blockchain network work?"
 date: 2025-08-15
 draft: false
+tags:
+  - blockchain
+  - blockchain-architecture
+  - bitcoin
+  - peer-to-peer-networking
+  - distributed-systems
+  - golang
+  - cryptocurrency
+  - blockchain-node
+  - mining-pool
+  - proof-of-work
+  - tcp-networking
+  - full-node
 ---
 
 ## Back Story

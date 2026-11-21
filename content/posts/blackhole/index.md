@@ -2,6 +2,18 @@
 title: "Raytracing a black Hole."
 date: 2026-01-17
 draft: false
+tags:
+  - computer-graphics
+  - ray-tracing
+  - black-holes
+  - astrophysics
+  - general-relativity
+  - schwarzschild-black-hole
+  - physics-simulation
+  - numerical-methods
+  - cpp
+  - rk4-integration
+  - scientific-computing
 ---
 
 ## Gallery

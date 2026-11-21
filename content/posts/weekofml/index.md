@@ -3,6 +3,19 @@ title: "ML Chronologically: From Linear Regression to World Models"
 showTableOfContents: true
 date: 2026-08-31
 draft: false
+tags:
+  - machine-learning
+  - deep-learning
+  - artificial-intelligence
+  - neural-networks
+  - machine-learning-algorithms
+  - transformers
+  - generative-ai
+  - world-models
+  - jepa
+  - computer-vision
+  - natural-language-processing
+  - reinforcement-learning
 ---
 
 ## Introduction
@@ -140,10 +153,11 @@ $$P(\text{fever} = \text{no}) = \frac{3}{10}$$
 #### Step 2: Conditional Probability
 
 How to observe is example for 1st cell we see covid yes and fever yes 2nd cell covid yes fever no and divide them by total no of yes and no in data.
-| | Yes | No |
+
+|       | Yes           | No            |
 | ----- | ------------- | ------------- |
 | COVID | $\frac{4}{7}$ | $\frac{1}{3}$ |
-| Flu | $\frac{3}{7}$ | $\frac{1}{3}$ |
+| Flu   | $\frac{3}{7}$ | $\frac{1}{3}$ |
 
 #### Bayes' Theorem Formulas
 
@@ -438,12 +452,13 @@ Filter (3×3)
 Output (4×4)
 
 Input \* filter=
-| | | | |
+
+|     |     |     |     |
 | --- | --- | --- | --- |
-| 80 | 80 | 80 | 80 |
-| 80 | 80 | 80 | 80 |
-| 80 | 80 | 80 | 80 |
-| 80 | 80 | 80 | 80 |
+| 80  | 80  | 80  | 80  |
+| 80  | 80  | 80  | 80  |
+| 80  | 80  | 80  | 80  |
+| 80  | 80  | 80  | 80  |
 
 ##### Formula For Output Height and Width
 
@@ -535,10 +550,11 @@ $$X \approx WC^T$$
 
 Where $W$ contains word vectors (reduced to 2 dimensions):
 We first randomly assign W and C and try to predict X co-occurrence matrix calcuate error and fix our matrix.
-| Word | Vector |
+
+| Word    | Vector         |
 | ------- | -------------- |
-| I | $[0.48, 0.52]$ |
-| love | $[0.72, 0.75]$ |
+| I       | $[0.48, 0.52]$ |
+| love    | $[0.72, 0.75]$ |
 | physics | $[0.71, 0.74]$ |
 | geeking | $[0.70, 0.73]$ |
 

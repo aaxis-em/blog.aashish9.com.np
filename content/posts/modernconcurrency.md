@@ -2,6 +2,19 @@
 title: "Concurrency for the Bold: A Modern C++ Guide"
 date: 2025-09-21
 draft: false
+tags:
+  - cpp
+  - modern-cpp
+  - cpp20
+  - concurrency
+  - multithreading
+  - parallel-programming
+  - thread-synchronization
+  - mutex
+  - atomic-operations
+  - race-conditions
+  - deadlocks
+  - asynchronous-programming
 ---
 
 ---

@@ -2,6 +2,19 @@
 title: "Thoughts on Programming"
 date: 2024-03-04
 draft: false
+tags:
+  - programming
+  - programming-languages
+  - computer-science
+  - computer-architecture
+  - assembly-language
+  - machine-code
+  - compilers
+  - artificial-intelligence
+  - ai-assisted-programming
+  - software-development
+  - future-of-programming
+  - low-level-programming
 ---
 
 # My thoughts on programming where we are and what can be the future of programming
