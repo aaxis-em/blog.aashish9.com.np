@@ -1,5 +1,8 @@
 title = "Blogs"
 
+[params]
+description = "Aashish Adhikari's personal blog covering software engineering, Go, C++, distributed systems, artificial intelligence, machine learning, computer science, and experimental projects."
+
 [params.author]
 name = "🌀 Aashish Thoughts"
 image = "img/pfp.gif"
