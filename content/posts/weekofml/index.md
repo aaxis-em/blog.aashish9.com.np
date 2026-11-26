@@ -25,7 +25,7 @@ Tech industry is on steroid with ml the development that took more than 10 yrs a
 
 ## Motivation
 
-I was semi unemployed and bored so i dedicated a week for ml to learn it all the way from linear regression to multimodal and state of the art,research on world models.This is my act to document stuff I still don't have habit to document digitally I have a notebook documented and writing this after that week hope you will like it if not i don't even care it's for me bitch.
+I was semi unemployed and bored so i dedicated a week for ml to learn it all the way from linear regression to multimodal and state of the art,research on world models.This is my act to document stuff I still don't have habit to document digitally I have a notebook documented and writing this after that week hope you will like it if not i don't even care it's for me.
 
 ## Linear Regression (1800)
 
